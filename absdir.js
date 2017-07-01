@@ -2,15 +2,22 @@
 /* -*- tab-width: 2 -*- */
 'use strict';
 
-var pathLib = require('path');
+var EX, pathLib = require('path');
 
-function getAbsoluteDirnameOfFileOrModule(pathOrModule) {
-  if (pathOrModule instanceof Object) {
-    pathOrModule = ((((typeof pathOrModule.filename) === 'string')
-      && pathOrModule.filename) || pathOrModule);
+EX = function getAbsoluteDirnameOfFileOrModule(pom) {
+  if ((pom && typeof pom) === 'object') {
+    pom = (((typeof pom.filename === 'string')
+      && pom.filename) || pom);
   }
-  if (!pathOrModule) { throw new Error('no path or module given!'); }
-  return pathLib.dirname(pathLib.resolve(pathOrModule));
-}
+  if (!pom) { throw new Error('no path or module given!'); }
+  return pathLib.dirname(pathLib.resolve(pom));
+};
 
-module.exports = getAbsoluteDirnameOfFileOrModule;
+EX.up = function (pom, ups) {
+  pom = EX(pom);
+  ups = (ups === +ups ? ups : 1);
+  for (0; ups > 1; ups -= 1) { pom = pathLib.dirname(pom); }
+  return pom;
+};
+
+module.exports = EX;
