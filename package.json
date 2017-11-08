@@ -1,7 +1,7 @@
 { "name": "absdir",
-  "version": "1.0.2",
-  "description": "Find the absolute directory path of a filename or a module object. Can work as a more reliable alternative to __dirame.",
-  "keywords": [ "absolute path", "absdirame", "__absdirame" ],
+  "version": "1.0.5",
+  "description": "Find the absolute directory path of a filename or a module object. No more excuses for __dirname.",
+  "keywords": [ "absolute path", "absdirname", "__absdirname" ],
 
   "author": "M.K. (https://github.com/mk-pmb)",
   "homepage": "https://github.com/mk-pmb/absdir-node#readme",
