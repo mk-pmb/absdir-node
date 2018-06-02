@@ -34,6 +34,14 @@ modDir = (function readmeDemo() {
 }());
 
 
+(function acceptImportMeta() {
+  var meta = { url: 'file://' + module.filename };
+    // ^-- imitate import.meta (https://github.com/tc39/proposal-import-meta)
+  equal(pathLib.join(absdir(meta), 'howto.js'), module.filename);
+  equal(absdir(meta, '..')('package.json'),  pkgMeta);
+}());
+
+
 
 
 

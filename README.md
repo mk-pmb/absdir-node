@@ -34,6 +34,8 @@ This module exports one function:
 
 Without `prefixPath`, returns the absolute path to the parent
 directory of `pathOrModule`.
+An object with a string-type `url` property (e.g. your ES6 module's
+[`import.meta`][import-meta]) is fine, too.
 
 With `prefixPath`, returns a function that will resolve paths relative
 to `pathOrModule`'s parent directory and the `prefixPath`
@@ -57,6 +59,8 @@ Better than __dirname
 
 
 &nbsp;
+
+  [import-meta]: https://github.com/tc39/proposal-import-meta
 
 License
 -------

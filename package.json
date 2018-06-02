@@ -1,5 +1,5 @@
 { "name": "absdir",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Find the absolute directory path of a filename or a module object. No more excuses for __dirname.",
   "keywords": [ "absolute path", "absdirname", "__absdirname" ],
 

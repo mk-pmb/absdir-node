@@ -4,7 +4,6 @@
 
 var EX, pathLib = require('path');
 
-
 function relFac(base) {
   return function rel() {
     return pathLib.resolve(pathLib.join.apply(null,
@@ -12,11 +11,12 @@ function relFac(base) {
   };
 }
 
+function ifStr(x) { return ((typeof x === 'string') && x); }
 
 EX = function getAbsoluteDirnameOfFileOrModule(pom, prefix) {
   if ((pom && typeof pom) === 'object') {
-    pom = (((typeof pom.filename === 'string')
-      && pom.filename) || pom);
+    pom = String(ifStr(pom.filename) || ifStr(pom.url) || pom
+      ).replace(/^file:\/+/, '/');
   }
   if (!pom) { throw new Error('no path or module given!'); }
   pom = pathLib.dirname(pathLib.resolve(pom));
